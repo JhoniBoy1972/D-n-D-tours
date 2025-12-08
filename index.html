@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>D & D Tours — Book Private Tours in Sri Lanka</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Softer float animation for hero image card */
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+    .float-card {
+      animation: float 8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* Fade-in-up for sections */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.7s ease-out both;
+    }
+    .fade-in-up-delay-1 { animation-delay: 0.12s; }
+    .fade-in-up-delay-2 { animation-delay: 0.22s; }
+    .fade-in-up-delay-3 { animation-delay: 0.32s; }
+  </style>
+</head>
+<body class="bg-zinc-50 min-h-screen flex flex-col">
+  <!-- NAVBAR -->
+<nav class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+    
+    <!-- LOGO -->
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">
+        D&D
+      </div>
+      <div class="flex flex-col leading-tight">
+        <span class="font-semibold text-emerald-800 tracking-tight text-sm md:text-base">D & D Tours</span>
+        <span class="text-[10px] text-gray-400">Private Tours • Sri Lanka</span>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="relative flex items-center gap-4 text-xs md:text-sm">
+
+      <!-- DROPDOWN: TOURS -->
+      <div class="group relative hidden sm:block">
+        <button class="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
+          Home
+          <span class="text-[10px]">▼</span>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div class="absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-lg border border-zinc-200 opacity-0 invisible 
+                    group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="#tours-section" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">All Tours</a>
+          <a href="#how-it-works" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">How it Works</a>
+          <a href="#for-guides" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">For Host (Internal)</a>
+        </div>
+      </div>
+
+      <!-- NORMAL LINKS -->
+      <a href="gallery.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Gallery</a>
+      <a href="contact.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Contact</a>
+
+      <!-- AUTH BUTTONS -->
+      <button id="nav-login"
+        class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition">
+        Login / Signup
+      </button>
+      <button id="nav-logout"
+        class="px-3.5 py-1.5 rounded-lg bg-rose-500 text-white hover:bg-rose-600 shadow-sm hidden transition">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+  <main class="flex-1">
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-b from-emerald-50 via-zinc-50 to-zinc-100 border-b border-zinc-200">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-20 grid lg:grid-cols-2 gap-x-20 gap-y-12 items-center">
+        <!-- LEFT SIDE: TEXT -->
+        <div class="space-y-7 fade-in-up">
+          <span
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white shadow-sm text-[11px] font-medium text-emerald-700 border border-emerald-100">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            New · D &amp; D Tours · Sri Lanka
+          </span>
+
+          <div class="space-y-4 max-w-2xl">
+            <h1 class="text-[2.2rem] md:text-4xl lg:text-[3rem] font-extrabold leading-relaxed tracking-tight text-zinc-900">
+              Make your Sri Lankan tour bookings feel
+              <span class="block bg-gradient-to-r from-emerald-700 via-teal-600 to-amber-500 bg-clip-text text-transparent">
+                simple, personal and well-organized.
+              </span>
+            </h1>
+            <p class="text-sm md:text-base text-zinc-600 leading-relaxed max-w-xl">
+              D &amp; D Tours is a private, owner–run operation. Guests can create an account, choose a tour,
+              send a booking request and then pay online via PayHere, bank transfer, or directly with the host.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button onclick="window.location.href='login.html'"
+              class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-sm md:text-base hover:bg-emerald-700 shadow-sm transition transform hover:-translate-y-0.5">
+              Create account &amp; start booking
+            </button>
+            <a href="#tours-section"
+              class="px-5 py-2.5 rounded-xl border border-zinc-300 bg-white text-sm md:text-base hover:bg-zinc-50 transition">
+              Browse sample tours
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-4 text-[11px] text-gray-500 pt-1">
+            <div class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              Mobile-first layouts for travellers
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              TripAdvisor-style booking flow
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              Firebase, PayHere-ready &amp; Cloudinary images
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: PREVIEW CARD -->
+        <div class="relative w-full max-w-md lg:max-w-lg mx-auto fade-in-up fade-in-up-delay-1">
+          <div
+            class="absolute -top-4 -right-2 text-[10px] bg-emerald-500 text-white px-2 py-1 rounded-full shadow-sm hidden md:inline">
+            Live preview
+          </div>
+
+          <div class="rounded-3xl bg-white/85 backdrop-blur shadow-xl p-5 space-y-4 border border-zinc-100">
+            <div class="flex items-center justify-between text-xs text-zinc-500">
+              <span class="font-semibold text-zinc-800">Today’s featured tour</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-[10px]">
+                Demo listing
+              </span>
+            </div>
+
+            <!-- Only the image floats -->
+            <div class="h-48 md:h-56 rounded-2xl bg-cover bg-center float-card"
+              style="background-image:url('./assets/placeholder-tour.jpg')">
+            </div>
+
+            <div class="space-y-1">
+              <p class="font-semibold text-sm text-zinc-900">Colombo Sunset City Tour</p>
+              <p class="text-xs text-zinc-500">
+                3 hours • Hotel pickup • Hosted by D &amp; D Tours
+              </p>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-1">
+              <div class="space-y-0.5">
+                <p class="font-semibold text-emerald-700">From LKR 8,500</p>
+                <p class="text-[10px] text-zinc-500">Per adult · Free cancellation</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs text-zinc-700">⭐ 4.8 (120 reviews)</p>
+                <p class="text-[10px] text-emerald-600">Instant booking request style</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRUST STRIP -->
+      <div class="max-w-6xl mx-auto px-4 md:px-8 pb-12 fade-in-up fade-in-up-delay-2">
+        <div
+          class="mt-4 md:mt-6 bg-white/80 backdrop-blur rounded-2xl border border-zinc-100 shadow-sm px-4 md:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] md:text-xs">
+          <div class="flex items-center gap-2">
+            <span class="h-6 w-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">
+              ✓
+            </span>
+            <p class="text-zinc-700">
+              Integrates cleanly with PayHere, bank transfers or direct arrangements — similar to TripAdvisor’s “reserve now, pay later” feel.
+            </p>
+          </div>
+          <div class="flex gap-6 text-zinc-500">
+            <div class="space-y-0.5">
+              <p class="font-semibold text-zinc-800 text-xs">Realtime</p>
+              <p>Powered by Firebase</p>
+            </div>
+            <div class="space-y-0.5">
+              <p class="font-semibold text-zinc-800 text-xs">Media</p>
+              <p>Served via Cloudinary gallery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="py-16 md:py-20 bg-zinc-50">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-9 fade-in-up">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+          <div class="space-y-2 max-w-md">
+            <h2 class="text-xl md:text-2xl font-bold text-zinc-900">Built for one host — clear for every guest.</h2>
+            <p class="text-xs md:text-sm text-zinc-600 leading-relaxed">
+              D &amp; D Tours runs as a single-operator setup. Guests see a clean booking interface, you get a private admin
+              view to track active tours, enquiries and payments.
+            </p>
+          </div>
+          <p class="text-[11px] text-zinc-400">
+            All of this can be connected to your existing TripAdvisor presence later.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 md:gap-8 text-sm">
+          <div
+            class="bg-white rounded-2xl shadow-sm p-5 space-y-3 border border-zinc-100 hover:shadow-md hover:-translate-y-1 transition">
+            <div class="flex items-center gap-2">
+              <span class="h-7 w-7 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs">
+                🧳
+              </span>
+              <p class="font-semibold text-zinc-900">For Guests</p>
+            </div>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              Browse tours, pick dates, add pickup details and submit a booking request — just like TripAdvisor or Airbnb,
+              but dedicated to D &amp; D Tours.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-sm p-5 space-y-3 border border-zinc-100 hover:shadow-md hover:-translate-y-1 transition">
+            <div class="flex items-center gap-2">
+              <span class="h-7 w-7 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-xs">
+                📋
+              </span>
+              <p class="font-semibold text-zinc-900">For the Host (you)</p>
+            </div>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              A separate admin page shows upcoming tours, guest details, payment status and notes — private to D &amp; D Tours only.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-sm p-5 space-y-3 border border-zinc-100 hover:shadow-md hover:-translate-y-1 transition">
+            <div class="flex items-center gap-2">
+              <span class="h-7 w-7 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-xs">
+                💳
+              </span>
+              <p class="font-semibold text-zinc-900">Flexible payments</p>
+            </div>
+            <p class="text-xs text-zinc-600 leading-relaxed">
+              Guests can pay through PayHere (embedded), bank transfer, or talk directly with you —
+              all options shown clearly on the booking flow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR DESTINATIONS -->
+    <section class="py-14 md:py-16 bg-white border-y border-zinc-200">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-7 fade-in-up">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div class="space-y-1">
+            <h2 class="text-xl md:text-2xl font-bold text-zinc-900">Signature areas D &amp; D can cover</h2>
+            <p class="text-xs md:text-sm text-zinc-600 max-w-md">
+              These are example tiles. Later you can link each to a real tour, similar to how TripAdvisor shows
+              “Top experiences” for each destination.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-5 md:gap-7 text-sm">
+          <div class="bg-zinc-50 rounded-2xl p-3.5 space-y-2 border border-zinc-100">
+            <div class="h-36 rounded-xl bg-cover bg-center"
+              style="background-image:url('https://images.pexels.com/photos/4603767/pexels-photo-4603767.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+            <p class="font-semibold text-xs text-zinc-900 mt-1.5">Sigiriya &amp; Dambulla</p>
+            <p class="text-[11px] text-zinc-600">Day trips · Sunrise hikes · Cave temples</p>
+          </div>
+          <div class="bg-zinc-50 rounded-2xl p-3.5 space-y-2 border border-zinc-100">
+            <div class="h-36 rounded-xl bg-cover bg-center"
+              style="background-image:url('https://images.pexels.com/photos/4603765/pexels-photo-4603765.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+            <p class="font-semibold text-xs text-zinc-900 mt-1.5">Ella &amp; Hill Country</p>
+            <p class="text-[11px] text-zinc-600">Tea trails · Train views · Little Adam’s Peak</p>
+          </div>
+          <div class="bg-zinc-50 rounded-2xl p-3.5 space-y-2 border border-zinc-100">
+            <div class="h-36 rounded-xl bg-cover bg-center"
+              style="background-image:url('https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+            <p class="font-semibold text-xs text-zinc-900 mt-1.5">Galle &amp; South Coast</p>
+            <p class="text-[11px] text-zinc-600">Fort walks · Surf spots · Beach sunsets</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="bg-zinc-50">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-20 space-y-9 fade-in-up">
+        <div class="space-y-2">
+          <h2 class="text-xl md:text-2xl font-bold text-zinc-900">How booking works (TripAdvisor-style)</h2>
+          <p class="text-xs md:text-sm text-zinc-600 max-w-md leading-relaxed">
+            Guests go through a familiar booking journey: choose date, group size, contact details and preferred payment
+            method — and you get all info in one place.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-7 md:gap-9 text-sm">
+          <div class="flex gap-3">
+            <div
+              class="h-8 w-8 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold shadow-sm">
+              1
+            </div>
+            <div class="space-y-1">
+              <p class="font-semibold text-zinc-900">Create a guest account</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">
+                Simple email-based signup. Guests can log in again later and see active and past tours.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div
+              class="h-8 w-8 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold shadow-sm">
+              2
+            </div>
+            <div class="space-y-1">
+              <p class="font-semibold text-zinc-900">Choose tour, date &amp; payment option</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">
+                Guests pick an experience, add date, pickup location and choose to pay via PayHere, bank transfer or on-arrival.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div
+              class="h-8 w-8 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center font-bold shadow-sm">
+              3
+            </div>
+            <div class="space-y-1">
+              <p class="font-semibold text-zinc-900">You confirm &amp; host the tour</p>
+              <p class="text-xs text-zinc-600 leading-relaxed">
+                D &amp; D Tours sees the request on the private admin page, confirms with the guest, and the tour appears as “active”.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR GUIDES STRIP (host info) -->
+    <section id="for-guides" class="bg-white border-y border-zinc-200">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16 fade-in-up">
+        <div
+          class="rounded-3xl bg-zinc-900 text-zinc-50 px-6 md:px-8 py-7 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div class="space-y-2 max-w-md">
+            <p class="text-xs uppercase tracking-wide text-emerald-300">For the host (D &amp; D Tours)</p>
+            <h3 class="text-lg md:text-xl font-semibold">
+              Your day, neatly laid out in one admin page.
+            </h3>
+            <p class="text-[11px] md:text-xs text-zinc-200 leading-relaxed">
+              Instead of digging through WhatsApp and TripAdvisor messages, your private admin view shows today’s pickups,
+              this week’s tours and important guest notes in one list.
+            </p>
+          </div>
+          <div class="space-y-2 text-[11px] md:text-xs">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              Today’s pickups with names &amp; phone numbers
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              Active / upcoming / completed tour statuses
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              Built mobile-first so you can check from your phone
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURS GRID (dynamic) -->
+    <section id="tours-section" class="py-16 md:py-20 bg-zinc-50">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-7 fade-in-up">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div class="space-y-2 max-w-md">
+            <h2 class="text-xl md:text-2xl font-bold text-zinc-900">Available demo tours</h2>
+            <p class="text-xs md:text-sm text-zinc-600 leading-relaxed">
+              The cards below load from Firebase Firestore. Later, you’ll add your real tours here — with pricing,
+              photos and descriptions similar to TripAdvisor listings.
+            </p>
+          </div>
+          <span id="tours-count" class="text-[11px] text-zinc-400"></span>
+        </div>
+
+        <div id="tours-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          <!-- populated by tours.js -->
+        </div>
+
+        <p class="text-[11px] text-zinc-400 pt-2">
+          Images come from Cloudinary; text &amp; price come from Firestore, so you can update content without redeploying.
+        </p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bg-white border-y border-zinc-200">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16 space-y-7 fade-in-up">
+        <div class="space-y-1">
+          <h2 class="text-xl md:text-2xl font-bold text-zinc-900">What it could feel like for guests</h2>
+          <p class="text-xs md:text-sm text-zinc-600">
+            Demo quotes to help D &amp; D Tours imagine the experience — replace these later with real reviews from guests or TripAdvisor.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5 md:gap-7 text-sm">
+          <div class="bg-zinc-50 rounded-2xl p-4 border border-zinc-100">
+            <p class="text-xs text-zinc-700 leading-relaxed">
+              “I booked my airport pickup and first day tour in one go. Everything was already in the system when I landed.”
+            </p>
+            <p class="text-[11px] text-zinc-500 mt-3 font-medium">Demo guest • Solo traveller</p>
+          </div>
+          <div class="bg-zinc-50 rounded-2xl p-4 border border-zinc-100">
+            <p class="text-xs text-zinc-700 leading-relaxed">
+              “Feels like TripAdvisor, but it’s just for this one guide. Easy to see my booking and pickup time.”
+            </p>
+            <p class="text-[11px] text-zinc-500 mt-3 font-medium">Demo guest • Couple</p>
+          </div>
+          <div class="bg-zinc-50 rounded-2xl p-4 border border-zinc-100">
+            <p class="text-xs text-zinc-700 leading-relaxed">
+              “We started with a few tours and then slowly added more. Didn’t have to rebuild the website each time.”
+            </p>
+            <p class="text-[11px] text-zinc-500 mt-3 font-medium">D &amp; D Tours (host)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA STRIP (modern glassmorphism) -->
+    <section class="relative overflow-hidden">
+      <!-- Soft background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-700"></div>
+
+      <!-- Glow blobs -->
+      <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-52 h-52 bg-amber-400/10 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-10 py-12 md:py-16 fade-in-up">
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 shadow-xl rounded-3xl px-8 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <!-- LEFT TEXT -->
+          <div class="space-y-3 max-w-lg text-center md:text-left">
+            <h3 class="text-lg md:text-xl font-semibold text-white tracking-tight">
+              Ready to turn this into the live D &amp; D Tours booking site?
+            </h3>
+            <p class="text-xs md:text-sm text-emerald-50 leading-relaxed">
+              The structure is ready. Next steps: connect PayHere, add your real tours, plug in your gallery and contact
+              details — and share this link with your TripAdvisor guests.
+            </p>
+          </div>
+
+          <!-- BUTTON -->
+          <button onclick="window.location.href='login.html'"
+            class="px-7 py-3 bg-white text-emerald-700 rounded-xl text-sm md:text-base font-semibold shadow-md
+                   hover:bg-zinc-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+            Create / access guest account
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-zinc-200">
+    <div
+      class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-1 text-[11px] text-zinc-400">
+      <span>© 2025 D &amp; D Tours · All rights reserved</span>
+      <span>Guests use this site · Admin / host tools stay in a separate secure page</span>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL (needed by booking.js) -->
+  <div id="booking-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center hidden z-40">
+    <div class="bg-white rounded-2xl p-5 w-full max-w-md shadow-xl">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="font-semibold text-sm">Book tour</h3>
+        <button id="booking-close" class="text-gray-500 text-sm">✕</button>
+      </div>
+      <p id="booking-tour-title" class="font-medium text-sm mb-2"></p>
+      <div class="grid gap-2 text-sm">
+        <input id="booking-date" type="date" class="border rounded px-3 py-2" />
+        <input id="booking-time" type="time" class="border rounded px-3 py-2" />
+        <input id="booking-people" type="number" min="1" value="1" class="border rounded px-3 py-2" />
+        <input id="booking-pickup" type="text" placeholder="Pickup location" class="border rounded px-3 py-2" />
+      </div>
+      <div class="mt-4">
+        <button id="booking-pay"
+          class="w-full bg-emerald-600 text-white px-4 py-2 rounded text-sm hover:bg-emerald-700 transition">
+          Confirm &amp; Pay (Demo)
+        </button>
+        <p id="booking-message" class="text-xs text-center text-gray-600 mt-2 min-h-[1.2rem]"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for tours + booking -->
+  <script type="module" src="./js/tours.js"></script>
+  <script type="module" src="./js/booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-emerald-50 flex items-center justify-center h-screen">
+  
+  <div class="text-center animate-fade">
+    <!-- ICON RANDOM -->
+    <div id="travel-icon" class="text-6xl mb-4"></div>
+
+    <h1 class="text-3xl font-bold text-emerald-700 mb-2">Success!</h1>
+    <p class="text-lg text-emerald-600">Redirecting to dashboard...</p>
+  </div>
+
+  <script>
+    const icons = ["✈️", "🚐", "🚗", "🧳", "🛶", "⛵"];
+    document.getElementById("travel-icon").textContent = 
+      icons[Math.floor(Math.random() * icons.length)];
+
+    setTimeout(() => {
+      window.location.href = "dashboard-customer.html";
+    }, 2500);
+  </script>
+
+  <style>
+    .animate-fade { 
+      animation: fade 1s ease-in-out forwards;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</body>
+</html>

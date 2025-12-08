@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gallery – TravelGuide</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.7s ease-out both;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+ <!-- NAVBAR -->
+<nav class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+    
+    <!-- LOGO -->
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">
+        D&D
+      </div>
+      <div class="flex flex-col leading-tight">
+        <span class="font-semibold text-emerald-800 tracking-tight text-sm md:text-base">D & D Tours</span>
+        <span class="text-[10px] text-gray-400">Private Tours • Sri Lanka</span>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="relative flex items-center gap-4 text-xs md:text-sm">
+
+      <!-- DROPDOWN: TOURS -->
+      <div class="group relative hidden sm:block">
+        <button class="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
+          Home
+          <span class="text-[10px]">▼</span>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div class="absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-lg border border-zinc-200 opacity-0 invisible 
+                    group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <a href="#tours-section" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">All Tours</a>
+          <a href="#how-it-works" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">How it Works</a>
+          <a href="#for-guides" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">For Host (Internal)</a>
+        </div>
+      </div>
+
+      <!-- NORMAL LINKS -->
+      <a href="gallery.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Gallery</a>
+      <a href="contact.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Contact</a>
+
+      <!-- AUTH BUTTONS -->
+      <button id="nav-login"
+        class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition">
+        Login / Signup
+      </button>
+      <button id="nav-logout"
+        class="px-3.5 py-1.5 rounded-lg bg-rose-500 text-white hover:bg-rose-600 shadow-sm hidden transition">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+  <main class="flex-1">
+    <!-- HERO -->
+    <section class="bg-gradient-to-b from-slate-100 to-slate-50 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-16 fade-in-up">
+        <div class="space-y-4 max-w-3xl">
+          <p class="text-[11px] uppercase tracking-[0.15em] text-sky-600 font-semibold">
+            GALLERY
+          </p>
+          <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900">
+            A snapshot of the tours and places your guests can experience.
+          </h1>
+          <p class="text-xs md:text-sm text-slate-600 max-w-2xl">
+            Use this page to show real photos from your past trips – sunsets, hikes, street food,
+            wildlife and more. You can later load images dynamically from Cloudinary or Firestore.
+          </p>
+        </div>
+
+        <!-- Filter chips (static for now) -->
+        <div class="mt-6 flex flex-wrap gap-2 text-[11px] md:text-xs">
+          <button class="px-3 py-1 rounded-full bg-sky-600 text-white font-medium">
+            All
+          </button>
+          <button class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600">
+            Beaches & Coast
+          </button>
+          <button class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600">
+            Hill Country
+          </button>
+          <button class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600">
+            Culture & Heritage
+          </button>
+          <button class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600">
+            Wildlife
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <section class="py-12 md:py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-7 fade-in-up">
+        <!-- Big featured row -->
+        <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+          <div class="md:col-span-2">
+            <div class="relative h-64 md:h-80 rounded-3xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Sunset at the beach"
+                class="w-full h-full object-cover" />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent p-4 md:p-5 text-white">
+                <p class="text-xs uppercase tracking-wide">Coastal Experience</p>
+                <p class="text-sm md:text-base font-semibold">Sunset walk along the South Coast</p>
+                <p class="text-[11px] text-slate-100/90">
+                  Perfect end to a day tour in Galle & surrounding beaches.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4 md:space-y-5">
+            <div class="h-32 md:h-36 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/4603767/pexels-photo-4603767.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Sigiriya"
+                class="w-full h-full object-cover" />
+            </div>
+            <div class="h-32 md:h-36 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/4603765/pexels-photo-4603765.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Train in hill country"
+                class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Smaller mosaic -->
+        <div class="grid sm:grid-cols-3 gap-4 md:gap-6 text-[11px] md:text-xs">
+          <div class="space-y-2">
+            <div class="h-40 md:h-44 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/2087459/pexels-photo-2087459.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Tea fields"
+                class="w-full h-full object-cover" />
+            </div>
+            <p class="font-semibold text-slate-800">Tea country viewpoints</p>
+            <p class="text-slate-500">
+              Misty mornings and endless green hills in Ella or Nuwara Eliya.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-40 md:h-44 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/2087376/pexels-photo-2087376.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Temple"
+                class="w-full h-full object-cover" />
+            </div>
+            <p class="font-semibold text-slate-800">Cultural highlights</p>
+            <p class="text-slate-500">
+              Temples, ancient cities and local traditions built into each itinerary.
+            </p>
+          </div>
+          <div class="space-y-2">
+            <div class="h-40 md:h-44 rounded-2xl overflow-hidden shadow-sm">
+              <img
+                src="https://images.pexels.com/photos/13691356/pexels-photo-13691356.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Safari"
+                class="w-full h-full object-cover" />
+            </div>
+            <p class="font-semibold text-slate-800">Wildlife moments</p>
+            <p class="text-slate-500">
+              Safaris and nature walks where guests might see elephants, birds and more.
+            </p>
+          </div>
+        </div>
+
+        <!-- Info strip -->
+        <div
+          class="mt-4 md:mt-6 bg-white/90 backdrop-blur rounded-2xl border border-slate-100 shadow-sm px-4 md:px-6 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px] md:text-xs text-slate-600">
+          <p class="max-w-xl">
+            Later, you can connect this gallery to <strong>Cloudinary</strong> and pull real tour images based on
+            categories like “Beach”, “Hill Country”, “Culture” and “Wildlife”.
+          </p>
+          <p class="text-slate-400">
+            For now, these are static placeholders to show your client the layout.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200">
+    <div
+      class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-1 text-[11px] text-slate-400">
+      <span>© 2025 TravelGuide</span>
+      <span>Gallery layout – replace with real D &amp; D Tours photos later</span>
+    </div>
+  </footer>
+
+  <!-- Init nav auth buttons -->
+  <script type="module">
+    import { setupNavAuthButtons } from "./js/common.js";
+    setupNavAuthButtons();
+  </script>
+</body>
+</html>

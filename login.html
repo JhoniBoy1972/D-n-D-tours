@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>D & D Tours — Sign in</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* small success flash animation */
+    .auth-success {
+      --tw-bg-opacity: 1;
+      animation: pulse-2 900ms ease-out;
+    }
+    @keyframes pulse-2 {
+      0% { box-shadow: 0 0 0 0 rgba(16,185,129, .25); }
+      70% { box-shadow: 0 0 0 12px rgba(16,185,129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16,185,129, 0); }
+    }
+
+    /* doodle background */
+    #doodle {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.08;
+      mix-blend-mode: multiply;
+    }
+
+    /* ensure main card sits above doodle */
+    main { position: relative; z-index: 1; }
+  </style>
+</head>
+
+<body class="bg-emerald-50 min-h-screen flex flex-col">
+
+  <!-- doodle background SVG placeholder; JS will fill with a random travel doodle -->
+  <div id="doodle" aria-hidden="true"></div>
+
+  <!-- SIMPLE NAV -->
+  <nav class="bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="h-9 w-9 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">
+          D&D
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-semibold text-emerald-800 tracking-tight text-sm md:text-base">D &amp; D Tours</span>
+          <span class="text-[10px] text-gray-400">Sri Lanka • Private experiences</span>
+        </div>
+      </div>
+
+      <button onclick="window.location.href='index.html'"
+        class="text-xs md:text-sm text-gray-600 hover:text-emerald-700">
+        Back to home
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="flex-1 flex items-center justify-center px-4 py-8">
+    <div class="max-w-4xl w-full grid md:grid-cols-2 gap-8 items-center">
+
+      <!-- LEFT COPY -->
+      <div class="hidden md:flex flex-col gap-4 text-sm text-emerald-950">
+        <h1 class="text-2xl font-bold">Sign in to plan your trip</h1>
+        <p class="text-sm text-emerald-900/80">
+          Save your bookings, view upcoming tours, and message D &amp; D Tours — just like TripAdvisor style accounts.
+        </p>
+
+        <ul class="space-y-1 text-xs text-emerald-900/80">
+          <li>• View active + past tours</li>
+          <li>• Save pickup / contact details</li>
+          <li>• Easy WhatsApp support</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT SIDE CARD -->
+      <div class="bg-white rounded-2xl shadow-lg border border-emerald-100 p-6 space-y-4">
+
+        <div class="flex justify-between items-center mb-1">
+          <h2 class="text-lg font-semibold text-emerald-900">Login or create an account</h2>
+          <span class="text-[10px] text-gray-400">For travellers</span>
+        </div>
+
+        <div class="flex justify-center gap-2 text-xs mb-3">
+          <button id="mode-login"
+            class="px-3 py-1 rounded-full bg-emerald-600 text-white font-medium">
+            Login
+          </button>
+
+          <button id="mode-signup"
+            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+            Create account
+          </button>
+        </div>
+
+        <!-- EMAIL / PASSWORD -->
+        <div class="space-y-2">
+          <div>
+            <label class="block text-[11px] font-medium text-emerald-900 mb-1">Email</label>
+            <input id="auth-email" type="email"
+              class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500" />
+          </div>
+
+          <div class="relative">
+            <label class="block text-[11px] font-medium text-emerald-900 mb-1">Password</label>
+            <input id="auth-password" type="password"
+              class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm pr-20 focus:ring-2 focus:ring-emerald-500" />
+            <!-- visibility toggle -->
+            <button id="toggle-pass"
+              class="absolute right-2 top-8 text-xs bg-slate-50 px-2 py-1 rounded-md border">Show</button>
+          </div>
+        </div>
+
+        <!-- SIGNUP EXTRA -->
+        <div id="signup-extra" class="space-y-2 hidden">
+          <div>
+            <label class="block text-[11px] font-medium text-emerald-900 mb-1">Full name</label>
+            <input id="auth-name" type="text"
+              class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500" />
+          </div>
+
+          <div class="flex gap-2">
+            <div class="w-1/3">
+              <label class="block text-[11px] font-medium text-emerald-900 mb-1">Code</label>
+              <input id="auth-country-code" placeholder="+94"
+                class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500" />
+            </div>
+
+            <div class="flex-1">
+              <label class="block text-[11px] font-medium text-emerald-900 mb-1">Mobile / WhatsApp</label>
+              <input id="auth-phone" type="text"
+                class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-medium text-emerald-900 mb-1">Country</label>
+            <!-- searchable list with flags -->
+            <input id="auth-country" list="countries-list"
+              class="w-full border border-emerald-100 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-emerald-500" placeholder="e.g. 🇱🇰 Sri Lanka" />
+            <datalist id="countries-list">
+              <!-- a small sample; add more as needed -->
+              <option value="🇱🇰 Sri Lanka"></option>
+              <option value="🇮🇳 India"></option>
+              <option value="🇬🇧 United Kingdom"></option>
+              <option value="🇺🇸 United States"></option>
+              <option value="🇦🇺 Australia"></option>
+              <option value="🇨🇦 Canada"></option>
+              <option value="🇳🇿 New Zealand"></option>
+            </datalist>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button id="auth-submit"
+          class="w-full mt-2 px-4 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition">
+          Continue
+        </button>
+
+        <!-- SOCIAL LOGINS -->
+        <div class="space-y-2 mt-4">
+          <!-- Google -->
+          <button id="auth-google"
+            class="w-full flex items-center justify-center gap-2 px-4 py-2 border rounded-lg text-sm bg-white hover:bg-gray-50 transition">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-4" />
+            Continue with Google
+          </button>
+        </div>
+
+        <p id="auth-message" class="text-[11px] text-center text-red-500 min-h-[1.2rem]"></p>
+
+        <p class="text-[10px] text-gray-500 text-center">
+          By continuing, you agree to be contacted by D &amp; D Tours for your booking details.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-emerald-100">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 py-3 text-[11px] text-gray-400 flex justify-between">
+      <span>© 2025 D &amp; D Tours</span>
+      <span>Firebase Authentication + Google Login</span>
+    </div>
+  </footer>
+
+  <!-- scripts: make sure paths match where you save the files -->
+  <script>
+    // small travel doodles array (SVGs). Random one chosen each load.
+    const doodles = [
+      `<svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+         <g fill="none" stroke="#0ea5a4" stroke-width="2">
+           <path d="M30 300 Q150 180 300 230 T600 210" stroke-linecap="round" stroke-linejoin="round"/>
+           <circle cx="680" cy="120" r="24" stroke="#10b981" fill="#10b981"/>
+           <path d="M120 500 q80 -60 200 -50" stroke-width="3" />
+           <g transform="translate(480,300) rotate(-12)">
+             <path d="M0 0 l40 -10 l10 6 l-5 14 l-45 -10" stroke="#ef4444" />
+           </g>
+         </g>
+       </svg>`,
+      `<svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+         <g fill="none" stroke="#3b82f6" stroke-width="2">
+           <path d="M10 350 q140 -220 320 -180 t460 -40" />
+           <g transform="translate(200,120)">
+             <rect x="0" y="0" width="60" height="30" rx="6" fill="#f97316" stroke="#f97316"/>
+             <path d="M60 15 l30 -10" stroke="#f97316"/>
+           </g>
+           <circle cx="700" cy="80" r="18" fill="#60a5fa"/>
+         </g>
+       </svg>`,
+      `<svg width="100%" height="100%" viewBox="0 0 800 600">
+         <g stroke="#7c3aed" stroke-width="2" fill="none">
+           <path d="M20 420 C200 200 400 200 780 120" />
+           <path d="M100 480 q120 -80 260 -30" stroke-width="3"/>
+           <path d="M520 360 l60 -30 l30 8" stroke="#ef4444"/>
+         </g>
+       </svg>`
+    ];
+
+    const doodleEl = document.getElementById('doodle');
+    if (doodleEl) {
+      doodleEl.innerHTML = doodles[Math.floor(Math.random() * doodles.length)];
+    }
+  </script>
+
+  <!-- firebase + app scripts -->
+  <script type="module" src="/public/public/js/firebase-config.js"></script>
+  <script type="module" src="/public/public/js/auth.js"></script>
+</body>
+</html>
