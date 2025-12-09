@@ -20,7 +20,7 @@
  <!-- NAVBAR -->
 <nav class="bg-white/90 backdrop-blur shadow-sm sticky top-0 z-20">
   <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-    
+
     <!-- LOGO -->
     <div class="flex items-center gap-2">
       <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">
@@ -32,17 +32,14 @@
       </div>
     </div>
 
-    <!-- MENU -->
-    <div class="relative flex items-center gap-4 text-xs md:text-sm">
+    <!-- DESKTOP MENU -->
+    <div class="hidden sm:flex items-center gap-4 text-xs md:text-sm">
 
-      <!-- DROPDOWN: TOURS -->
-      <div class="group relative hidden sm:block">
-        <button class="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
-          Home
-          <span class="text-[10px]">▼</span>
-        </button>
-
-        <!-- Dropdown menu -->
+      <!-- DROPDOWN: HOME MENU -->
+      <div class="group relative">
+        <a href="index.html"><button class="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
+          Home <span class="text-[10px]">▼</span>
+        </button></a>
         <div class="absolute left-0 mt-2 w-44 bg-white rounded-lg shadow-lg border border-zinc-200 opacity-0 invisible 
                     group-hover:opacity-100 group-hover:visible transition-all duration-200">
           <a href="#tours-section" class="block px-3 py-2 text-gray-700 hover:bg-emerald-50">All Tours</a>
@@ -51,20 +48,48 @@
         </div>
       </div>
 
-      <!-- NORMAL LINKS -->
-      <a href="gallery.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Gallery</a>
-      <a href="contact.html" class="text-gray-600 hover:text-emerald-600 hidden sm:inline">Contact</a>
+      <a href="gallery.html" class="text-gray-600 hover:text-emerald-600">Gallery</a>
+      <a href="contact.html" class="text-gray-600 hover:text-emerald-600">Contact</a>
 
-      <!-- AUTH BUTTONS -->
-      <button id="nav-login"
+     <a href="login.html"><button id="nav-login"
         class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition">
         Login / Signup
-      </button>
+      </button></a>
       <button id="nav-logout"
         class="px-3.5 py-1.5 rounded-lg bg-rose-500 text-white hover:bg-rose-600 shadow-sm hidden transition">
         Logout
       </button>
     </div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobile-menu-btn" class="sm:hidden text-zinc-700 text-2xl">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- MOBILE DROPDOWN PANEL -->
+  <div id="mobile-menu" class="hidden sm:hidden flex-col gap-2 bg-white border-t border-zinc-200 shadow-inner p-4 text-sm">
+
+    <div class="border-b border-zinc-200 pb-2 mb-2">
+      <span class="text-gray-500 text-[10px] uppercase">Home</span>
+      <a href="#tours-section" class="block py-1 text-gray-700 hover:text-emerald-600">All Tours</a>
+      <a href="#how-it-works" class="block py-1 text-gray-700 hover:text-emerald-600">How it Works</a>
+      <a href="#for-guides" class="block py-1 text-gray-700 hover:text-emerald-600">For Host (Internal)</a>
+    </div>
+
+    <a href="gallery.html" class="block py-1 text-gray-700 hover:text-emerald-600">Gallery</a>
+    <a href="contact.html" class="block py-1 text-gray-700 hover:text-emerald-600">Contact</a>
+
+    <button id="nav-login-mobile"
+      class="mt-3 w-full px-3.5 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition">
+      Login / Signup
+    </button>
+    <button id="nav-logout-mobile"
+      class="mt-2 w-full px-3.5 py-2 rounded-lg bg-rose-500 text-white hover:bg-rose-600 transition hidden">
+      Logout
+    </button>
+
   </div>
 </nav>
 
@@ -213,5 +238,15 @@
     import { setupNavAuthButtons } from "./js/common.js";
     setupNavAuthButtons();
   </script>
+
+  <script>
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
 </body>
 </html>
